@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+            border: 2px solid black;
+        }
+        body{
+            background: lightblue;
+        }
+        li{
+            display: inline;
+            margin-right: 5em;
+            margin-left: 6em;
+        }
+        nav{
+            border: 3px solid black;
+        }
+        th{
+            border:2px solid black;
+        }
+        td{
+            border:2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Biblioteca</h1>
+
+    <nav>
+        <ul>
+            <li><a href= "{% url 'inicio' %}"> Inicio </a></li>
+            <li><a href= "{% url 'listar_libros' %}"> Libros </a></li>
+            <li><a href= "{% url 'ejemplar' %}"> Ejemplares </a></li>
+            <li><a href= "#"> Prestamos </a></li>
+            <li><a href= "#"> Iniciar sesión </a></li>
+        </ul>
+    </nav>
+
+  
+    {%  block principal %}
+        <p>Bloque principal para las paginas</p>
+    {%  endblock %}
+    
+</body>
+</html>
