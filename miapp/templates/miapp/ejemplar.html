@@ -4,7 +4,7 @@
 
 <h2>Listado Ejemplar</h2>
 
-<table>
+<table class="table table-dark">
     <tr>
         <th>Numero Ejemplar</th>
         <th>Fecha de compra</th>
@@ -14,7 +14,7 @@
     </tr>
     {% for ejemplar in object_list  %}
         <tr>
-            <td>{{ ejemplar.numeroejemplar }}</td>
+            <td><a href="{% url 'detalle_ejemplar' ejemplar.id %}">{{ ejemplar.numeroejemplar }}</a></td>
             <td>{{ ejemplar.fechadecompra }}</td>
             <td>{{ ejemplar.libro }}</td>
             <td><a href="{% url 'editar_ejemplar' ejemplar.id %}">Editar</a></td>
@@ -24,7 +24,7 @@
 
 </table>
 
-
-<a href="{% url 'nuevo_ejemplar' %}">Nuevo Ejemplar</a>
+<p></p>
+<a href="{% url 'nuevo_ejemplar' %}" class="nuevo">Nuevo Ejemplar</a>
 
 {% endblock %}

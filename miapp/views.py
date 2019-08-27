@@ -56,3 +56,7 @@ class EjemplarDelete(DeleteView):
     model = Ejemplar
     template_name = 'miapp/eliminar_ejemplar.html'
     success_url = reverse_lazy('ejemplar')
+
+class EjemplarDetalle(DetailView):
+    model = Ejemplar
+    template_name = 'miapp/detalle_ejemplar.html'
