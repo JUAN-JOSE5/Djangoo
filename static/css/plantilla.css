@@ -1,0 +1,50 @@
+header{
+    text-align: center;
+    border: 2px solid black;
+    background: lightblue;
+}
+li{
+    display: inline;
+    margin-right: 5em;
+    margin-left: 4em;
+}
+nav{
+    border: 3px solid black;
+    background: lightblue;
+    padding-top: 1em;
+}
+th{
+    border:2px solid black;
+}
+td{
+    border:2px solid black;
+}
+h2{
+    text-align: center;
+    margin-top: 0.5em;
+    background: lightblue;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.nuevo{
+    text-align: center
+}
+table{
+    margin-top:0.5em;
+    background: lightblue;
+}
+h1{
+    color:black;
+}
+body{
+
+
+    margin: auto;
+    width: 80%;
+    background: black;
+
+    
+}
+
