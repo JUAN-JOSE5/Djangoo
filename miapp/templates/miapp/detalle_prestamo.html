@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block principal %}
+    <h2>Detalle Prestamo</h2>
+    <p><b>Fecha de Prestamo:</b> {{ object.fechaprestamo }}</p>
+    <p><b>Nombre del cliente:</b> {{ object.nombre_cliente }}</p>
+    <p><b>Telefono:</b> {{ object.telefono }}</p>
+    <p><b>Estado:</b> {{ object.estado }}</p>
+    <p><b>Prestamo:</b> {{ object.Prestamo }}</p>
+    <p><b>Ejemplar:</b> {{ object.Ejemplar }}</p>
+
+{% endblock %}

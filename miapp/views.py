@@ -8,6 +8,7 @@ from django.urls import reverse_lazy
 
 from .models import Libro
 from .models import Ejemplar
+from .models import Prestamo
 def cargar_inicio(request):
     return render(request, "miapp/index.html")
 
@@ -36,6 +37,7 @@ class LibroDelete(DeleteView):
     success_url = reverse_lazy('listar_libros')
 
 
+
 class EjemplarList(ListView):
     model = Ejemplar
     template_name = 'miapp/ejemplar.html'
@@ -60,3 +62,31 @@ class EjemplarDelete(DeleteView):
 class EjemplarDetalle(DetailView):
     model = Ejemplar
     template_name = 'miapp/detalle_ejemplar.html'
+
+
+
+class PrestamoList(ListView):
+    model = Prestamo
+    template_name = 'miapp/prestamo.html'
+
+
+class PrestamoCreate(CreateView):
+    model = Prestamo
+    fields = ['fechaprestamo','nombre_cliente','telefono','estado']
+    template_name = 'miapp/nuevo_prestamo.html'
+    success_url = reverse_lazy('prestamos')
+
+class PrestamoUpdate(UpdateView):
+    model = Prestamo
+    fields = ['fechaprestamo','nombre_cliente','telefono','estado']
+    template_name = 'miapp/editar_prestamo.html'
+    success_url = reverse_lazy('prestamos')
+
+class PrestamoDelete(DeleteView):
+    model = Prestamo
+    template_name = 'miapp/eliminar_prestamo.html'
+    success_url = reverse_lazy('prestamos')
+
+class PrestamoDetalle(DetailView):
+    model = Prestamo
+    template_name = 'miapp/detalle_prestamo.html'

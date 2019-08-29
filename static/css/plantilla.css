@@ -19,32 +19,20 @@ th{
 td{
     border:2px solid black;
 }
-h2{
-    text-align: center;
-    margin-top: 0.5em;
-    background: lightblue;
-}
+
 a{
     text-decoration: none;
     color: black;
 }
-.nuevo{
-    text-align: center
-}
+
 table{
     margin-top:0.5em;
     background: lightblue;
 }
-h1{
-    color:black;
-}
+
 body{
-
-
-    margin: auto;
-    width: 80%;
     background: black;
+    width: 80%;
 
-    
 }
 

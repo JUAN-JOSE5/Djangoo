@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block principal %}
+
+    <p>Esta seguro de eliminar <b> Fecha: {{ object.fechaprestamo }} , Nombre del cliente : {{ object.nombre_cliente }} </b> ?</p>
+    <form action="" method="POST">
+        {% csrf_token %}
+        
+        <button type="submit"><b>Eliminar</b></button>
+
+    </form>
+ 
+    <a href="{% url 'prestamos' %}">Cancelar</a>
+{% endblock %}
