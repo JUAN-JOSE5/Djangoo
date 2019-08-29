@@ -1,17 +1,21 @@
 from django.shortcuts import render
-
+#Importar para mirar una pagina,crear unos datos, actulizar los datos o borrar los datos
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView,UpdateView,DeleteView
-
+#
 from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
-
+#Importar el inicio de sesion en django 
+from django.http import HttpResponseRedirect
+from django.contrib.auth.views import LoginView, LogoutView
+#
 from .models import Libro
 from .models import Ejemplar
 from .models import Prestamo
 def cargar_inicio(request):
     return render(request, "miapp/index.html")
 
+#Libros
 class LibroList(ListView):
     model = Libro
     template_name = 'miapp/lista_libros.html'
@@ -36,7 +40,7 @@ class LibroDelete(DeleteView):
     template_name = 'miapp/eliminar_libro.html'
     success_url = reverse_lazy('listar_libros')
 
-
+#Ejemplar
 
 class EjemplarList(ListView):
     model = Ejemplar
@@ -63,7 +67,7 @@ class EjemplarDetalle(DetailView):
     model = Ejemplar
     template_name = 'miapp/detalle_ejemplar.html'
 
-
+#Prestamo
 
 class PrestamoList(ListView):
     model = Prestamo

@@ -29,7 +29,10 @@ class Ejemplar(models.Model):
 class DetallePrestamo(models.Model):
     prestamo = models.ForeignKey('Prestamo', on_delete=models.CASCADE)
     ejemplar = models.ForeignKey('Ejemplar', on_delete=models.CASCADE)
+    fechadedevolucion = models.DateField("Fecha de devolucion", null=True)
 
+    def _str_(self):
+        return "{0}-{1}".format(self.prestamo,self.ejemplar)
 
 
 
