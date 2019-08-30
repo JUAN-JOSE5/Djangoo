@@ -8,6 +8,7 @@ from django.urls import reverse_lazy
 #Importar el inicio de sesion en django 
 from django.http import HttpResponseRedirect
 from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.mixins import LoginRequiredMixin
 #
 from .models import Libro
 from .models import Ejemplar
@@ -23,19 +24,19 @@ class LibroList(ListView):
 class LibroDetalle(DetailView):
     model = Libro
     template_name = 'miapp/detalle_libro.html'
-class LibroCreate(CreateView):
+class LibroCreate(LoginRequiredMixin,CreateView):
     model = Libro
     fields = ['nombre','descripcion','isbn','copias']
     template_name = 'miapp/nuevo_libro.html'
     success_url = reverse_lazy('listar_libros')
 
-class LibroUpdate(UpdateView):
+class LibroUpdate(LoginRequiredMixin,UpdateView):
     model = Libro
     fields = ['nombre','descripcion','isbn','copias']
     template_name = 'miapp/actualizar_libro.html'
     success_url = reverse_lazy('listar_libros')
 
-class LibroDelete(DeleteView):
+class LibroDelete(LoginRequiredMixin,DeleteView):
     model = Libro
     template_name = 'miapp/eliminar_libro.html'
     success_url = reverse_lazy('listar_libros')
@@ -46,19 +47,19 @@ class EjemplarList(ListView):
     model = Ejemplar
     template_name = 'miapp/ejemplar.html'
 
-class EjemplarCreate(CreateView):
+class EjemplarCreate(LoginRequiredMixin,CreateView):
     model = Ejemplar
     fields = ['numeroejemplar','fechadecompra','libro']
     template_name = 'miapp/nuevo_ejemplar.html'
     success_url = reverse_lazy('ejemplar')
 
-class EjemplarUpdate(UpdateView):
+class EjemplarUpdate(LoginRequiredMixin,UpdateView):
     model = Ejemplar
     fields = ['numeroejemplar','fechadecompra','libro']
     template_name = 'miapp/editar_ejemplar.html'
     success_url = reverse_lazy('ejemplar')
 
-class EjemplarDelete(DeleteView):
+class EjemplarDelete(LoginRequiredMixin,DeleteView):
     model = Ejemplar
     template_name = 'miapp/eliminar_ejemplar.html'
     success_url = reverse_lazy('ejemplar')
@@ -74,19 +75,19 @@ class PrestamoList(ListView):
     template_name = 'miapp/prestamo.html'
 
 
-class PrestamoCreate(CreateView):
+class PrestamoCreate(LoginRequiredMixin,CreateView):
     model = Prestamo
     fields = ['fechaprestamo','nombre_cliente','telefono','estado']
     template_name = 'miapp/nuevo_prestamo.html'
     success_url = reverse_lazy('prestamos')
 
-class PrestamoUpdate(UpdateView):
+class PrestamoUpdate(LoginRequiredMixin,UpdateView):
     model = Prestamo
     fields = ['fechaprestamo','nombre_cliente','telefono','estado']
     template_name = 'miapp/editar_prestamo.html'
     success_url = reverse_lazy('prestamos')
 
-class PrestamoDelete(DeleteView):
+class PrestamoDelete(LoginRequiredMixin,DeleteView):
     model = Prestamo
     template_name = 'miapp/eliminar_prestamo.html'
     success_url = reverse_lazy('prestamos')

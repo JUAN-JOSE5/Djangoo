@@ -9,16 +9,20 @@
         <th>Numero Ejemplar</th>
         <th>Fecha de compra</th>
         <th>Libro</th>
+        {% if user.is_authenticated %}
         <th>Editar</th>
         <th>Borrar</th>
+        {% endif %}
     </tr>
     {% for ejemplar in object_list  %}
         <tr>
             <td><a href="{% url 'detalle_ejemplar' ejemplar.id %}">{{ ejemplar.numeroejemplar }}</a></td>
             <td>{{ ejemplar.fechadecompra }}</td>
             <td>{{ ejemplar.libro }}</td>
+            {% if user.is_authenticated %}
             <td><a href="{% url 'editar_ejemplar' ejemplar.id %}">Editar</a></td>
             <td><a href="{% url 'borrar_ejemplar' ejemplar.id %}">Eliminar</a></td>
+            {% endif %}
         </tr>
     {% endfor %}
 

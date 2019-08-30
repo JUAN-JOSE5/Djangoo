@@ -17,8 +17,11 @@
             <th>Descripción</th>
             <th>ISBN</th>
             <th>Copias</th>
+            {% if user.is_authenticated %}
             <th>Editar</th>
             <th>Borrar</th>
+            {% else %}
+            {% endif %}
         </tr>
         {% for libro in object_list  %}
             <tr>
@@ -26,8 +29,11 @@
                 <td>{{ libro.descripcion }}</td>
                 <td>{{ libro.isbn }}</td>
                 <td>{{ libro.copias }}</td>
+                {% if user.is_authenticated %}
                 <td><a href="{% url 'editar_libro' libro.id %}">Editar</a></td>
                 <td><a href="{% url 'borrar_libro' libro.id %}">Borrar</a></td>
+                {% else %}
+                {% endif %}
             </tr>
         {% endfor %}
 
